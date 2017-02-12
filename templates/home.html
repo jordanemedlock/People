@@ -1,0 +1,16 @@
+<!doctype html>
+<html>
+    <head>
+        {% for js in scripts %}
+            <script type="text/javascript" src="/static/{{ js }}"></script>
+        {% endfor %}
+
+    </head>
+    <body>
+        <h1>
+            Marbles
+        </h1>
+        <span id="message"></span>
+        <canvas id="canvas1"></canvas>
+    </body>
+</html>
