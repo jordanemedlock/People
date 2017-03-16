@@ -7,8 +7,8 @@ from datetime import datetime
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from mind.person import Person
-from mind.util import json_dumps
+from lib.person import Person
+from lib.util import json_dumps
 
 app = Flask(__name__)
 app.jinja_env.line_statement_prefix = '#'
@@ -41,27 +41,18 @@ def add_header(r):
     r.headers["Expires"] = "0"
     return r
 
-@app.route('/marbles')
-def hello_world():
-    return render_template('marbles/home.html')
 
-@app.route('/marbles/test')
-def test():
-    return render_template('marbles/home.html')
-
-
-
-
+@app.route('/')
 @app.route('/mind/list')
 def mind_list():
     global common
-    return render_template('mind/list.html', people=Person.list())
+    return render_template('list.html', people=Person.list())
 
 
 @app.route('/mind/<unique_id>/view')
 def mind_view(unique_id):
     person = Person.load(unique_id)
-    return render_template('mind/view.html', person=person)
+    return render_template('view.html', person=person)
 
 @app.route('/mind/<unique_id>/<action>', methods=['POST'])
 def mind_action(unique_id, action):

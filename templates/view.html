@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+{% block title %}
+    {{ person['full_name'] }}
+{% endblock %}
+
+{% block scripts %}
+    <link rel="stylesheet" type="text/css" href="/static/js/lib/jquery.svg.css">
+    <script type="text/javascript" src="/static/js/lib/jquery.svg.js"></script>
+    <script type="text/javascript" src="/static/js/lib/jquery.svgfilter.js"></script>
+    <script src="/static/js/spiderplot.js"></script>
+    <script src="/static/js/chat.js"></script>
+    <script src="/static/js/power-dict.js"></script>
+
+    <script>
+        person = {{ person|json|safe }};
+        console.log(person);
+    </script>
+    <script src="/static/js/index.js"></script>
+{% endblock %}
+
+{% block body %}
+<div class="row">
+    <div class="col-md-8">
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane interact active">
+                <hr/>
+                <div class="row">
+                    <div id="chat-window" class="col-md-12">
+                        <div id="chat-window-content">
+                            <div class="row chat">
+                                <div class="col-md-5 message theirs">
+                                    <span>Hi how are you today?</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr/>
+                <input id="chat-input" type=text class="form-control col-md-12"/>
+            </div>
+            <div role="tabpanel" class="tab-pane modify">
+                <div id="personality-graph" height=500px width=500px></div>
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <ul class="nav nav-pills view-mode">
+            <li role="presentation" class="active">
+                <a href="#interact" data-target=".interact" role="tab" data-toggle="tab">
+                    Interact
+                </a>
+            </li>
+            <li role="presentation">
+                <a href="#modify" data-target=".modify" role="tab" data-toggle="tab">
+                    Modify
+                </a>
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane interact active"></div>
+                    <div role="tabpanel" class="tab-pane modify">
+                        <ul class="nav nav-pills nav-stacked attributes">
+                            <li role="presentation" class="active"><a href="#" class="personality">Personality</a></li>
+                            <li role="presentation"><a href="#" class="emotions">Emotional State</a></li>
+                            <li role="presentation"><a href="#" class="memories">Memories</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

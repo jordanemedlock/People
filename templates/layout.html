@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %} Mind {% endblock %}</title>
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+            integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+            crossorigin="anonymous">
+        <script src="/static/js/lib/underscore.min.js"></script>
+        <script src="/static/js/lib/jquery.min.js"></script>
+        <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+
+        {% block scripts %}
+
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h1>
+                    {{ self.title() }}
+                </h1>
+            </div>
+            # block body
+            # endblock
+        </div>
+    </body>
+</html>
