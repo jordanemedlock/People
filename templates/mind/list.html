@@ -1,0 +1,12 @@
+{% extends "mind/layout.html" %}
+{% block title %}
+List Minds
+{% endblock %}
+{% block body %}
+<div class="list-group">
+# for id in people:
+    <a class="list-group-item" href="{{ url_for('mind_view', unique_id=id) }}">{{id}}</a>
+# endfor
+</div>
+
+{% endblock %}
